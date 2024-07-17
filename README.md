@@ -1,6 +1,13 @@
-# Getting Started with Create React App
+# Simple React Eccomerce project
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Run the commands below in the project folder directory in the terminal
+
+### `npm create-react-app EcommerceApp`
+To create react App.
+
+### `npm install -g install json-server` 
+Acts as a simple REST Api that allow sus to operate on improvised database.
 
 ## Available Scripts
 
@@ -13,6 +20,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+ ### `json-server --watch src/db/db.json --port 3001`
+This will start the json server at port 3001.
+port is set to 3001 to avoid conflict with port 3000 of react app
 
 ### `npm test`
 
