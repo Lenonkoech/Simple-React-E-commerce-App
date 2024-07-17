@@ -24,6 +24,7 @@ You may also see any lint errors in the console.
  ### `json-server --watch src/db/db.json --port 3001`
 This will start the json server at port 3001.
 port is set to 3001 to avoid conflict with port 3000 of react app
+Open [http://localhost:3001](http://localhost:3001) to view it in your browser
 
 ### `npm test`
 
