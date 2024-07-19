@@ -34,7 +34,7 @@ const App = () => {
 
     const renderProducts = () => {
         return products.data.map(p => (
-            <CategoryProducts {...p} >{p.title}</CategoryProducts>
+            <CategoryProducts {...p} key={p.id} >{p.title}</CategoryProducts>
         )
         )
     }
@@ -49,7 +49,6 @@ const App = () => {
                         {categories.data && renderCategories()}
                     </nav>
                     <div className='mainArea'>
-                        <h4>Products</h4>
                         {products.errorMessage && <div>Error: {products.errorMessage}</div>}
                         {
                             products.data && renderProducts()

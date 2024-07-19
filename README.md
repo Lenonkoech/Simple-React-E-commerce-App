@@ -9,6 +9,10 @@ To create react App.
 ### `npm install -g install json-server` 
 Acts as a simple REST Api that allow sus to operate on improvised database.
 
+### `npm install react-router-dom@6`
+Installing the react router
+
+
 ## Available Scripts
 
 In the project directory, you can run:
