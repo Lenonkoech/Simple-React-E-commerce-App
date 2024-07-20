@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getProductById } from '../fetcher';
+import styled from 'styled-components';
+
 const ProductDetails = () => {
     const { productid } = useParams();
     const [product, setProduct] = useState({ errorMessage: '', data: [] });
+
     useEffect(() => {
         const fetchData = async () => {
             const responseObject = await getProductById(productid);
@@ -11,56 +14,125 @@ const ProductDetails = () => {
         }
         fetchData();
     }, [productid])
+
     return (
-        <article>
-            <div className='category-product-title'>
+        <ProductInfoArticle>
+            <CategoryProductTitle>
                 {product.data.title}
-            </div>
-            <figure >
-                <div className='category-product-image-container'>
-                    <img src={`/assets/${product.data.image}`} alt={product.data.title} />
-                </div>
-            </figure>
-            <aside>
-                <div className='category-product-info dimensions'>
-                    <h4>Dimensions</h4>
-                    <label>{product.data.specs?.dimensions}</label>
-                </div>
+            </CategoryProductTitle>
+            <ProductInfoFirgure >
+                <CategoryProductImageContainer>
+                    <CategoryProductImage src={`/assets/${product.data.image}`} alt={product.data.title} />
+                </CategoryProductImageContainer>
+            </ProductInfoFirgure>
+            <ProductInfoAside>
+                <CategoryProductInfoDimensions>
+                    <CategoryProductInfoH4>Dimensions</CategoryProductInfoH4>
+                    <CategoryProductInfoLabel>
+                        {product.data.specs?.dimensions}
+                    </CategoryProductInfoLabel>
+                </CategoryProductInfoDimensions>
                 {product.data.specs?.capacity &&
-                    <div className='category-product-info capacity'>
-                        <h4>Capacity</h4>
-                        <label>{product.data.specs?.capacity}</label>
-                    </div>
+                    <CategoryProductInfoCapacity>
+                        <CategoryProductInfoH4>Capacity</CategoryProductInfoH4>
+                        <CategoryProductInfoLabel>{product.data.specs?.capacity}</CategoryProductInfoLabel>
+                    </CategoryProductInfoCapacity>
                 }
                 <div className='category-product-info-features'>
-                    <h4>Features</h4>
+                    <CategoryProductInfoH4>Features</CategoryProductInfoH4>
                     <ul>
                         {product.data.features?.map((f, i) =>
                             <li key={`feature${i}`}>{f}</li>
                         )}
                     </ul>
                 </div>
-            </aside>
-            <aside className='category-product-finance'>
-                <div className='category-product-finance-price'>
+            </ProductInfoAside>
+            <ProductInfoAside className='category-product-finance'>
+                <CatrgoryProductInfoFinancePrice>
                     &pound;{product.data.price}
-                </div>
-                <div className='category-product-finance-stock'>
-                    <label>
+                </CatrgoryProductInfoFinancePrice>
+                <CategoryProductInfoFinanceStock>
+                    <CategoryProductInfoLabel>
                         Stock level: {product.data.stock}<br />
                         Free delivery
-                    </label>
-                </div>
+                    </CategoryProductInfoLabel>
+                </CategoryProductInfoFinanceStock>
                 <div className='category-product-action'>
                     <button>Add to basket</button>
                 </div>
-            </aside>
+            </ProductInfoAside>
             <div className='category-product-description'>
                 {product.data?.description}
             </div>
-        </article>
+        </ProductInfoArticle>
 
     )
 }
 
 export default ProductDetails
+
+//Styled components
+const ProductInfoArticle = styled.article`
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.7fr;
+  grid-template-rows: 0.25fr 1fr 0.25fr;
+  column-gap: 20px;
+`;
+
+const CategoryProductTitle = styled.div`
+  grid-column: 1 / span 3;
+  color: darkslategray;
+  font-weight: bold;
+  font-size: 1.5em;
+  padding-left: 10px;
+`;
+
+const ProductInfoFirgure = styled.figure`
+
+`;
+const CategoryProductImageContainer = styled.div`
+ padding: 10px;
+  width: 300px;
+`;
+
+const CategoryProductImage = styled.img`
+ height: 250px;
+  width: 300px;
+  margin-right: auto;
+  border-radius: 10px;
+`;
+
+const ProductInfoAside = styled.aside`
+
+`;
+const CategoryProductInfoDimensions = styled.div`
+ display: flex;
+ flex-direction: column;
+`;
+
+const CategoryProductInfoCapacity = styled.div`
+ display: flex;
+ flex-direction: column;
+`;
+
+const CategoryProductInfoLabel = styled.label`
+
+`;
+const CategoryProductInfoH4 = styled.h4`
+
+`;
+
+const CatrgoryProductInfoFinancePrice = styled.div`
+ color: darkslategray;
+  font-size: 2em;
+  font-weight: bold;
+  padding-top: 10px;
+`;
+
+const CategoryProductInfoFinanceStock = styled.div`
+ color: darkslategray;
+  font-size: 2em;
+  font-weight: bold;
+  padding-top: 10px;
+`;
+

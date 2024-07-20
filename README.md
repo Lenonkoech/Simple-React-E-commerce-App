@@ -12,6 +12,8 @@ Acts as a simple REST Api that allow sus to operate on improvised database.
 ### `npm install react-router-dom@6`
 Installing the react router
 
+### `npm install --save styled-components`
+Installing styled components
 
 ## Available Scripts
 
@@ -26,7 +28,7 @@ The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
  ### `json-server --watch src/db/db.json --port 3001`
-This will start the json server at port 3001.
+This will start the json server at port 3001.\
 port is set to 3001 to avoid conflict with port 3000 of react app
 
 ### `npm test`
