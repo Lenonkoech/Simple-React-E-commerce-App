@@ -1,8 +1,9 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import Categories from './components/Categories';
+//import Categories from './components/Categories';
 import { getCategories, getProducts } from './fetcher';
 import CategoryProducts from './components/categoryProducts';
+import { Link } from 'react-router-dom';
 
 const App = () => {
 
@@ -28,8 +29,10 @@ const App = () => {
     const renderCategories = () => {
 
         return categories.data.map(c => (
-            <Categories key={c.id} id={c.id} title={c.title}
-                onCategoryClick={() => handleCategoryClick(c.id)} />));
+            <li key={c.id}>
+                <Link to={`categories/${c.id}`}>{c.title}</Link>
+            </li>
+        ));
     }
 
     const renderProducts = () => {
@@ -46,7 +49,9 @@ const App = () => {
                 <main className='main'>
                     <nav className='navBar'>
                         {categories.errorMessage && <div>Error: {categories.errorMessage}</div>}
-                        {categories.data && renderCategories()}
+                        <ul>
+                            {categories.data && renderCategories()}
+                        </ul>
                     </nav>
                     <div className='mainArea'>
                         {products.errorMessage && <div>Error: {products.errorMessage}</div>}

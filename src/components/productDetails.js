@@ -38,32 +38,32 @@ const ProductDetails = () => {
                         <CategoryProductInfoLabel>{product.data.specs?.capacity}</CategoryProductInfoLabel>
                     </CategoryProductInfoCapacity>
                 }
-                <div className='category-product-info-features'>
+                <CategoryProductInfoFeatures>
                     <CategoryProductInfoH4>Features</CategoryProductInfoH4>
                     <ul>
                         {product.data.features?.map((f, i) =>
                             <li key={`feature${i}`}>{f}</li>
                         )}
                     </ul>
-                </div>
+                </CategoryProductInfoFeatures>
             </ProductInfoAside>
-            <ProductInfoAside className='category-product-finance'>
+            <ProductInfoAside>
                 <CatrgoryProductInfoFinancePrice>
                     &pound;{product.data.price}
                 </CatrgoryProductInfoFinancePrice>
                 <CategoryProductInfoFinanceStock>
-                    <CategoryProductInfoLabel>
+                    <CategoryFinaceInfoLabel>
                         Stock level: {product.data.stock}<br />
                         Free delivery
-                    </CategoryProductInfoLabel>
+                    </CategoryFinaceInfoLabel>
                 </CategoryProductInfoFinanceStock>
-                <div className='category-product-action'>
-                    <button>Add to basket</button>
-                </div>
+                <CategoryProductAction>
+                    <CategoryProductActionButton>Add to basket</CategoryProductActionButton>
+                </CategoryProductAction>
             </ProductInfoAside>
-            <div className='category-product-description'>
+            <CategoryProductDescription>
                 {product.data?.description}
-            </div>
+            </CategoryProductDescription>
         </ProductInfoArticle>
 
     )
@@ -131,8 +131,34 @@ const CatrgoryProductInfoFinancePrice = styled.div`
 
 const CategoryProductInfoFinanceStock = styled.div`
  color: darkslategray;
-  font-size: 2em;
   font-weight: bold;
   padding-top: 10px;
 `;
 
+const CategoryProductInfoFeatures = styled.div`
+
+`;
+
+const CategoryProductDescription = styled.div`
+grid-column: 1 / span 3;
+padding-left:10px;
+padding-right:10px;
+`;
+
+const CategoryProductAction = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const CategoryProductActionButton = styled.button`
+ width: 160px;
+  height: 30px;
+  border-radius: 10px;
+  margin-top: 20px;
+  background-color: lightgray;
+  border: solid 1px slategrey;
+  font-weight: bold;
+`;
+const CategoryFinaceInfoLabel = styled.label`
+font-size:22px;
+`;
