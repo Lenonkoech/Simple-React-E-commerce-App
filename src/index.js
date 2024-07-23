@@ -11,6 +11,7 @@ import {
   Route,
   Routes
 } from 'react-router-dom';
+import Categories from './components/Categories';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -22,6 +23,7 @@ root.render(
         <Route path='basket' element={<Basket />} />
         <Route path='checkout' element={<Checkout />} />
         <Route path='products/:productid' element={<ProductDetails />} />
+        <Route path='categories/:categoryId' element={<Categories />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

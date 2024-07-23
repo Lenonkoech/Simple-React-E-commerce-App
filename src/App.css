@@ -25,3 +25,10 @@ main {
     text-decoration: none;
     color: rgb(3, 19, 1)
 }
+
+.categoryList {
+    list-style: none;
+    text-decoration: none;
+    color: rgb(9, 22, 1);
+    font-size: 18px;
+}
