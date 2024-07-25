@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getProducts } from '../fetcher';
 import CategoryProducts from './categoryProducts';
 
-const Categories = ({ id, title, onCategoryClick }) => {
+const Categories = () => {
 
     const [products, setProducts] = useState({ errorMessage: '', data: [] });
     const { categoryId } = useParams();

@@ -8,7 +8,7 @@ const CategoryProducts = ({ id, title, image, specs, features, price, stock }) =
 
         <ProductInfoArticle>
             <CategoryProductTitle>
-                <Link className='link' to={`products/${id}`}>{title}</Link>
+                <Link className='link' to={`/products/${id}`}>{title}</Link>
             </CategoryProductTitle>
             <ProductInfoFirgure >
                 <CategoryProductImageContainer>

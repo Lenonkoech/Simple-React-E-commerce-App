@@ -1,7 +1,16 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import { getCategories, } from './fetcher';
-import { Link } from 'react-router-dom';
+import ProductDetails from './components/productDetails';
+import Basket from './components/basket';
+import Checkout from './components/checkout';
+import {
+    BrowserRouter,
+    Route,
+    Routes
+} from 'react-router-dom';
+import Categories from './components/Categories';
+import Layout from './components/layout';
 
 const App = () => {
     const [categories, setCategories] = useState({ errorMessage: '', data: [] });
@@ -14,36 +23,18 @@ const App = () => {
         fetchData();
     }, []);
 
-    const renderCategories = () => {
-
-        return categories.data.map(c => (
-            <li className='categoryList' key={c.id}>
-                <Link to={`categories/${c.id}`} className='link'>{c.title}</Link>
-            </li>
-        ));
-    }
 
     return (
-        <React.Fragment>
-            <div className="App">
-                <header className='header'>MY shop</header>
-                <main className='main'>
-                    <nav className='navBar'>
-                        {categories.errorMessage && <div>Error: {categories.errorMessage}</div>}
-                        <ul>
-                            {categories.data && renderCategories()}
-                        </ul>
-                    </nav>
-                    <div className='mainArea'>
-                        {/* {products.errorMessage && <div>Error: {products.errorMessage}</div>}
-                        {
-                            products.data && renderProducts()
-                        } */}
-                    </div>
-                </main>
-                <footer className='footer'>Footer</footer>
-            </div>
-        </React.Fragment>
+        <BrowserRouter>
+            <Routes>
+                <Route path='/' element={<Layout categories={categories} />} >
+                    <Route path='basket' element={<Basket />} />
+                    <Route path='checkout' element={<Checkout />} />
+                    <Route path='products/:productid' element={<ProductDetails />} />
+                    <Route path='categories/:categoryId' element={<Categories />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
     );
 }
 

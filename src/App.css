@@ -3,6 +3,9 @@
     display: grid;
     justify-content: center;
     font-size: 30px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Courier New';
 }
 
 main {
