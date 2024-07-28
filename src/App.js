@@ -11,6 +11,7 @@ import {
 } from 'react-router-dom';
 import Categories from './components/Categories';
 import Layout from './components/layout';
+import Home from './components/home';
 
 const App = () => {
     const [categories, setCategories] = useState({ errorMessage: '', data: [] });
@@ -28,6 +29,7 @@ const App = () => {
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<Layout categories={categories} />} >
+                    <Route index element={<Home />} />
                     <Route path='basket' element={<Basket />} />
                     <Route path='checkout' element={<Checkout />} />
                     <Route path='products/:productid' element={<ProductDetails />} />

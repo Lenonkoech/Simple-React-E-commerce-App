@@ -25,7 +25,9 @@ const Layout = ({ categories }) => {
                         <Outlet />
                     </div>
                 </main>
-                <footer className='footer'>Footer</footer>
+                <footer className='footer'>
+                    <Link to='/' >Home</Link> | <Link to={'/basket'}>Basket</Link>
+                </footer>
             </div>
         </React.Fragment>
     )

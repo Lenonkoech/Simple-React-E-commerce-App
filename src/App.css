@@ -6,6 +6,7 @@
     color: white;
     font-weight: bold;
     font-family: 'Courier New';
+    height: 40px;
 }
 
 main {
@@ -14,9 +15,11 @@ main {
 }
 
 .footer {
-    display: grid;
+    display: flex;
     justify-content: center;
+    gap: 10px;
     background-color: gray;
+    height: 30px;
 }
 
 .navBar {
@@ -26,7 +29,6 @@ main {
 
 .link {
     text-decoration: none;
-    color: rgb(3, 19, 1)
 }
 
 .categoryList {
