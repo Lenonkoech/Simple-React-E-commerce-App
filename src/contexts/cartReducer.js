@@ -1,3 +1,8 @@
+
+const Storage = (cartItems) => {
+    sessionStorage.setItem('cart', JSON.stringify(cartItems.length > 0 ? cartItems : []));
+}
+
 export const CartReducer = (state, action) => {
     let index = -1;
     if (action.payload)
@@ -34,6 +39,7 @@ export const CartReducer = (state, action) => {
             break;
     }
     state.cartItems = newItems;
+    Storage(newItems);
     return state;
 
 }
