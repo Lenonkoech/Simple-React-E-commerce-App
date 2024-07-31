@@ -7,6 +7,27 @@
     font-weight: bold;
     font-family: 'Courier New';
     height: 40px;
+    grid-template-columns: 0.1fr 1fr 0.1fr;
+}
+
+#homeIcon {
+    justify-self: start;
+}
+
+#header {
+    justify-self: center;
+}
+
+#cartIcon {
+    justify-self: end;
+}
+
+#homeIcon a {
+    color: white;
+}
+
+#cartIcon a {
+    color: white;
 }
 
 main {
@@ -29,6 +50,7 @@ main {
 
 .link {
     text-decoration: none;
+    color: darkslategray;
 }
 
 .categoryList {
@@ -36,4 +58,13 @@ main {
     text-decoration: none;
     color: rgb(9, 22, 1);
     font-size: 18px;
+}
+
+.footer a {
+    color: aliceblue;
+}
+
+.basketTitles a {
+    color: darkslategray;
+    text-decoration: none;
 }
